@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zooloppa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="wrapper">
+	<h1>ZOOLOPPA</h1>
+<p>
+	<%= link_to "HOME", welcome_index_path %> | 
+	<%= link_to "Animals", animals_path %> | 
+	<%= link_to "飼育員ブログ", blogs_path %>
+</p>
+	<div id="content">
+		<%= yield %>		
+	</div>	
+</div>
+
+</body>
+</html>

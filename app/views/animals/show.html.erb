@@ -1,0 +1,37 @@
+<div id="animal-show">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Name:</strong>
+	  <%= @animal.name %>
+	</p>
+
+	<p>
+	  <strong>Description:</strong>
+	  <%= @animal.description %>
+	</p>
+
+	<p>
+	  <%= image_tag @animal.image %>
+	</p>
+
+	<h2>Comment</h2>
+	<% @animal.comments.each do |comment| %>
+		Commenter: <%= comment.commenter %><br>
+		<%= comment.body %>
+		<hr>
+	<% end %>
+
+	<hr>
+
+	<%= form_for [@animal, @animal.comments.build] do |f| %>
+		Commenter: <%= f.text_field :commenter %><br>
+		Body :<%= f.text_area :body %><br>
+		<%= f.submit %>
+	<% end %>
+
+
+	<%= link_to 'Edit', edit_animal_path(@animal) %> |
+	<%= link_to 'Back', animals_path %>
+	
+</div>
